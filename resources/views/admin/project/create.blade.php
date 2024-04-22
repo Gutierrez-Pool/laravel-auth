@@ -4,7 +4,7 @@
 
     <div class="container py-4">
 
-        <h1>Aggiunge un progetto</h1>
+        <h1>Aggiungi un progetto</h1>
 
         <form action="{{route('admin.projects.store')}}" method="POST" enctype="multipart/form-data">
             @csrf
