@@ -34,16 +34,17 @@ require __DIR__.'/auth.php';
 
 
 // Rotta per amministrazione
-Route::get('/admin', [DashboardController::class, 'index'])->middleware(['auth']);
+// Route::get('/admin', [DashboardController::class, 'index'])->middleware(['auth']);
 
 // Rotta per gestire tante rotte
 Route::middleware(['auth', 'verified'])
     ->name('admin.')
     ->prefix('admin')
     ->group(function(){
+        
         Route::get('/', [DashboardController::class, 'index'])->name('index');
         Route::get('/users', [DashboardController::class, 'users'])->name('users');
-        
+
         Route::resource('projects', ProjectController::class);
     }
 );
