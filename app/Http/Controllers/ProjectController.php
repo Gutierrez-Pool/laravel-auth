@@ -14,7 +14,7 @@ class ProjectController extends Controller
     public function index()
     {   
         $projects = Project::all();
-        return view('admin.project.index', compact('projects'));
+        return view('admin.projects.index', compact('projects'));
     }
 
     /**
@@ -22,7 +22,7 @@ class ProjectController extends Controller
      */
     public function create()
     {
-        return view('admin.project.create');
+        return view('admin.projects.create');
     }
 
     /**
@@ -45,7 +45,7 @@ class ProjectController extends Controller
      */
     public function show(Project $project)
     {
-        return view('admin.project.show', compact('project'));
+        return view('admin.projects.show', compact('project'));
     }
 
     /**
@@ -53,15 +53,19 @@ class ProjectController extends Controller
      */
     public function edit(Project $project)
     {
-        //
+        return view('admin.projects.edit', compact('project'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateProjectRequest $request, Project $project)
+    public function update(StoreProjectRequest $request, Project $project)
     {
-        //
+        $request->validated();
+
+        $project->update($request->all());
+
+        return redirect()->route('admin.projects.show', $project->id);
     }
 
     /**

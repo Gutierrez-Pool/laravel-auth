@@ -10,6 +10,8 @@
             {{$project->content}}
         </p>
 
+        <a href="{{route('admin.projects.edit', $project->id)}}" class="btn btn-warning">Modifica</a>
+        
     </div>
     
 @endsection
