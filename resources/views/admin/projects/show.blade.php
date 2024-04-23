@@ -4,6 +4,10 @@
 
     <div class="container py-4">
 
+        <div class="text-center mb-4">
+            <img style="max-width: 800px;" src="{{asset('storage/' . $project->cover_image)}}" alt="immagine">
+        </div>
+
         <h1>{{$project->title}}</h1>
 
         <p>

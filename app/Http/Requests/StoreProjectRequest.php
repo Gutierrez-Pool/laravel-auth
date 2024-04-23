@@ -24,6 +24,7 @@ class StoreProjectRequest extends FormRequest
         return [
             'title' => 'unique:projects,title|max:255|required',
             'content' => 'required',
+            'cover_image' => 'nullable'
         ];
     }
 
@@ -33,7 +34,10 @@ class StoreProjectRequest extends FormRequest
             'title.unique' => 'Il titolo è in uso',
             'title.max' => 'Il titolo deve avere massimo :max caratteri',
             'title.required' => 'Devi inserire un titolo',
-            'content.required' => 'Devi inserire il contenuto'
+
+            'content.required' => 'Devi inserire il contenuto',
+
+            'cover_image' => ''
         ];
     }
 }

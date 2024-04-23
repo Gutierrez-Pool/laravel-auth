@@ -6,7 +6,7 @@
 
         <h1>Aggiungi un progetto</h1>
 
-        <form action="{{route('admin.projects.store')}}" method="POST" enctype="multipart/form-data">
+        <form action="{{route('admin.projects.store')}}" method="POST" enctype="multipart/form-data" >
             @csrf
     
             <div class="mb-4">
@@ -17,7 +17,7 @@
                     {{$message}}
                 </div>
                 @enderror
-                <small id="titleHelper" class="text-muted">Titolo del post, massimo 255 caratteri</small>
+                <small id="titleHelper" class="text-muted">Titolo del progetto, massimo 255 caratteri</small>
             </div>
     
             <div class="mb-4">
@@ -28,6 +28,11 @@
                     {{$message}}
                 </div>
                 @enderror
+            </div>
+
+            <div class="mb-4">
+                <label for="cover_image">Immagine</label>
+                <input type="file" class="form-control" name="cover_image">
             </div>
     
             <button class="btn btn-primary">Aggiungi</button>
