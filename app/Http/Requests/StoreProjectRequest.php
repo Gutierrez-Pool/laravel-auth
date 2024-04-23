@@ -24,7 +24,7 @@ class StoreProjectRequest extends FormRequest
         return [
             'title' => 'unique:projects,title|max:255|required',
             'content' => 'required',
-            'cover_image' => 'nullable'
+            'cover_image' => 'file|max:1024|nullable|mimes:jpg,bmp,png'
         ];
     }
 
@@ -37,7 +37,9 @@ class StoreProjectRequest extends FormRequest
 
             'content.required' => 'Devi inserire il contenuto',
 
-            'cover_image' => ''
+            'cover_image.mimes' => "Il file deve essere un'immagine",
+            'cover_image.max' => "La dimensione del file non deve superare i 1024 Kb",
+
         ];
     }
 }

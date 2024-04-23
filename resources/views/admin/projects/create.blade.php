@@ -32,7 +32,12 @@
 
             <div class="mb-4">
                 <label for="cover_image">Immagine</label>
-                <input type="file" class="form-control" name="cover_image">
+                <input type="file" class="form-control @error('cover_image') is-invalid @enderror" name="cover_image">
+                @error('cover_image')
+                <div class="invalid-feedback">
+                    {{$message}}
+                </div>  
+                @enderror
             </div>
     
             <button class="btn btn-primary">Aggiungi</button>
